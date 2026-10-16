@@ -317,10 +317,7 @@ export default function Orders() {
 
   async function updateStatus(order, nextStatus) {
     if (nextStatus === order.status) return;
-    const confirmed = window.confirm(
-      `Change order ${order.id} from ${order.status} to ${nextStatus}?`,
-    );
-    if (!confirmed) return;
+    
 
     setUpdatingId(order.id);
     setError("");
