@@ -1,11 +1,19 @@
-import { LayoutDashboard, Package, ShoppingBag, LogOut, ShieldCheck } from "lucide-react";
+import {
+  LayoutDashboard,
+  Package,
+  ShoppingBag,
+  LogOut,
+  ShieldCheck,
+  Tags,
+} from "lucide-react";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../state/AuthContext";
 
 const links = [
   { to: "/", label: "Overview", icon: LayoutDashboard },
   { to: "/products", label: "Products", icon: Package },
-  { to: "/orders", label: "Orders", icon: ShoppingBag, disabled: true },
+  { to: "/categories", label: "Categories", icon: Tags },
+  { to: "/orders", label: "Orders", icon: ShoppingBag },
 ];
 
 export default function AdminLayout({ children, title = "Overview" }) {
@@ -24,7 +32,7 @@ export default function AdminLayout({ children, title = "Overview" }) {
           <nav className="grid gap-1.5">
             {links.map(({ to, label, icon: Icon, disabled }) =>
               disabled ? (
-                <div key={to} title="Coming in the next milestone" className="flex min-h-[45px] cursor-default items-center gap-3 rounded-[9px] px-3 text-[16px] font-medium text-[#c7d0c8]/60">
+                <div key={to} title="Coming in a later milestone" className="flex min-h-[45px] cursor-default items-center gap-3 rounded-[9px] px-3 text-[16px] font-medium text-[#c7d0c8]/60">
                   <Icon size={18} /><span>{label}</span><span className="ml-auto text-[10px] text-[#d8c9a7]">Soon</span>
                 </div>
               ) : (
