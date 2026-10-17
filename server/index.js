@@ -35,6 +35,9 @@ app.get("/api/admin/me", requireAdmin, (req, res) => {
 
 // Intentionally no public endpoint to grant custom claims.
 // Grant the admin claim only from a trusted operator environment after verifying identity.
-app.listen(Number(process.env.PORT || 8787), () => {
-  console.log(`Chinmay Admin auth service listening on port ${process.env.PORT || 8787}`);
+
+const PORT = Number(process.env.PORT || 8787);
+
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Chinmay Admin auth service listening on port ${PORT}`);
 });
